@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB3422C42EF5F3A300F8E752 /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = BB3422C32EF5F39900F8E752 /* vocab.json */; };
 		D92AF15526A7667B00B4D1BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AF15426A7667B00B4D1BC /* AppDelegate.swift */; };
 		D92AF15726A7667B00B4D1BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AF15626A7667B00B4D1BC /* SceneDelegate.swift */; };
 		D92AF15926A7667B00B4D1BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92AF15826A7667B00B4D1BC /* ViewController.swift */; };
@@ -16,7 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D92AF15126A7667B00B4D1BC /* Karteikasten v.0.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Karteikasten v.0.1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB3422C32EF5F39900F8E752 /* vocab.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
+		D92AF15126A7667B00B4D1BC /* Karteikasten v.0.3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Karteikasten v.0.3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92AF15426A7667B00B4D1BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D92AF15626A7667B00B4D1BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D92AF15826A7667B00B4D1BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +50,7 @@
 		D92AF15226A7667B00B4D1BC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D92AF15126A7667B00B4D1BC /* Karteikasten v.0.1.app */,
+				D92AF15126A7667B00B4D1BC /* Karteikasten v.0.3.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,6 +58,7 @@
 		D92AF15326A7667B00B4D1BC /* Karteikasten */ = {
 			isa = PBXGroup;
 			children = (
+				BB3422C32EF5F39900F8E752 /* vocab.json */,
 				D92AF15426A7667B00B4D1BC /* AppDelegate.swift */,
 				D92AF15626A7667B00B4D1BC /* SceneDelegate.swift */,
 				D92AF15826A7667B00B4D1BC /* ViewController.swift */,
@@ -84,7 +87,7 @@
 			);
 			name = Karteikasten;
 			productName = Karteikasten;
-			productReference = D92AF15126A7667B00B4D1BC /* Karteikasten v.0.1.app */;
+			productReference = D92AF15126A7667B00B4D1BC /* Karteikasten v.0.3.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D92AF16126A7667D00B4D1BC /* LaunchScreen.storyboard in Resources */,
+				BB3422C42EF5F3A300F8E752 /* vocab.json in Resources */,
 				D92AF15E26A7667C00B4D1BC /* Assets.xcassets in Resources */,
 				D92AF15C26A7667B00B4D1BC /* Main.storyboard in Resources */,
 			);
@@ -305,7 +309,7 @@
 				);
 				MARKETING_VERSION = alpha;
 				PRODUCT_BUNDLE_IDENTIFIER = com.viktorreif.Karteikasten;
-				PRODUCT_NAME = "Karteikasten v.0.1";
+				PRODUCT_NAME = "Karteikasten v.0.3";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -326,7 +330,7 @@
 				);
 				MARKETING_VERSION = alpha;
 				PRODUCT_BUNDLE_IDENTIFIER = com.viktorreif.Karteikasten;
-				PRODUCT_NAME = "Karteikasten v.0.1";
+				PRODUCT_NAME = "Karteikasten v.0.3";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,4 +1,4 @@
-
+import Foundation
 import UIKit
 
 class ViewController: UIViewController {
@@ -6,17 +6,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var lbl1: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     
-    var vocabularyList = [
-        "1 - Hallo",
-        "Goodbye - Auf Wiedersehen",
-        "Thank you - Danke",
-        "Please - Bitte",
-        "Yes - Ja",
-        "No - Nein",
-        "Water - Wasser",
-        "Food - Essen"
+    var vocabulary: [[String: String]] = [
+        [
+            "german": "dennoch",
+            "french": "néanmoins"
+        ],
+        [
+            "german": "deutsch",
+            "french": "allemand"
+        ]
     ]
     
+        
     var currentIndex = 0
     
     override func viewDidLoad() {
@@ -32,8 +33,12 @@ class ViewController: UIViewController {
     }
     
     func displayCurrentWord() {
-        if currentIndex < vocabularyList.count {
-            lbl1.text = vocabularyList[currentIndex]
+        if currentIndex < vocabulary.count {
+            let entry = vocabulary[currentIndex]
+            let german = entry["german"] ?? "—"
+            let french = entry["french"] ?? "—"
+            lbl1.text = "🇩🇪 \(german)\n🇫🇷 \(french)"
+            nextButton.isEnabled = true
         } else {
             lbl1.text = "🎉 Done!"
             nextButton.isEnabled = false
