@@ -16,14 +16,42 @@ class ViewController: UIViewController {
             "french": "allemand"
         ]
     ]
+  
     
-        
+    
+    struct ResponseData: Decodable {
+        var person: [Person]
+    }
+
+    struct Person: Decodable {
+        var name: String
+        var age: String
+        var employed: String
+    }
+    
+    func loadJson(filename fileName: String) -> [Person]? {
+        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode(ResponseData.self, from: data)
+                return jsonData.person
+            } catch {
+                print("Error: \(error)")
+            }
+        }
+        return nil
+    }
+    
+  
     var currentIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         displayCurrentWord()
+        print(999)
+        print(loadJson(filename: "vocab"))
     }
     
     func setupUI() {

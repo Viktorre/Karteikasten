@@ -1,11 +1,14 @@
 {
-    "name": "Greenwood High",
-    "location": {
-        "city": "New York",
-        "state": "NY"
+  "person": [
+    {
+      "name": "Bob",
+      "age": "16",
+      "employed": "No"
     },
-    "students": [
-        {"name": "Emma", "age": 15},
-        {"name": "Liam", "age": 14}
-    ]
+    {
+      "name": "Vinny",
+      "age": "56",
+      "employed": "Yes"
+    }
+  ]
 }
