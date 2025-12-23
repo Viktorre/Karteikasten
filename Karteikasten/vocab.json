@@ -1,14 +1,14 @@
 {
-  "person": [
+  "vocab": [
     {
-      "name": "Bob",
-      "age": "16",
-      "employed": "No"
+      "german": "Hallo",
+      "french": "Salut",
+      "difficulty": 5
     },
     {
-      "name": "Vinny",
-      "age": "56",
-      "employed": "Yes"
+        "german": "Alles",
+        "french": "tout",
+        "difficulty": 6
     }
   ]
 }
