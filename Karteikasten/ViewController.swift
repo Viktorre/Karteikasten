@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         setupUI()
         displayCurrentWord()
         print(999)
-        print(loadJson(filename: "vocab")![0].german)
+        print(loadJson(filename: "vocab")?.count==2)
     }
     
     func setupUI() {
@@ -64,9 +64,9 @@ class ViewController: UIViewController {
     }
     
     func displayCurrentWord() {
-        if currentIndex < vocabulary.count {
-            let german = loadJson(filename: "vocab")![0].german ?? "—"
-            let french = loadJson(filename: "vocab")![0].french ?? "—"
+        if currentIndex < loadJson(filename: "vocab")!.count {
+            let german = loadJson(filename: "vocab")![currentIndex].german ?? "—"
+            let french = loadJson(filename: "vocab")![currentIndex].french ?? "—"
             lbl1.text = "🇩🇪 \(german)\n🇫🇷 \(french)"
             nextButton.isEnabled = true
         } else {
