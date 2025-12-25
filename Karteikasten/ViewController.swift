@@ -1,22 +1,25 @@
 import Foundation
 import UIKit
 
+
+struct ResponseData: Decodable {
+    var vocab: [Vocab]
+}
+
+struct Vocab: Decodable {
+    var german: String
+    var french: String
+    var difficulty: Int
+}
+
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var lbl1: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     
-    
-    struct ResponseData: Decodable {
-        var vocab: [Vocab]
-    }
-
-    struct Vocab: Decodable {
-        var german: String
-        var french: String
-        var difficulty: Int
-    }
-
+    var currentIndex = 0
+    var vocabs: [Vocab]!
 
     func loadJson(filename fileName: String) -> [Vocab]? {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
@@ -31,20 +34,16 @@ class ViewController: UIViewController {
         }
         return nil
     }
-
-    
-    
-        
-    var currentIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        vocabs = loadJson(filename: "vocab")!
+        print(vocabs.count==2)
         displayCurrentWord()
         print(999)
         print(loadJson(filename: "vocab")?.count==2)
-        var vocab = loadJson(filename: "vocab")!
-        print(vocab.count==2)
+
     }
     
     func setupUI() {
@@ -54,10 +53,9 @@ class ViewController: UIViewController {
     }
     
     func displayCurrentWord() {
-        var vocab = loadJson(filename: "vocab")!
-        if currentIndex < vocab.count {
-            let german = vocab[currentIndex].german
-            let french = vocab[currentIndex].french
+        if currentIndex < vocabs.count {
+            let german = vocabs[currentIndex].german
+            let french = vocabs[currentIndex].french
             lbl1.text = "🇩🇪 \(german)\n🇫🇷 \(french)"
             nextButton.isEnabled = true
         } else {
