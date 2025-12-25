@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     var currentIndex = 0
     var vocabs: [Vocab]!
 
-    func loadJson(filename fileName: String) -> [Vocab]? {
+    func loadJson(fileName: String) -> [Vocab]? {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
@@ -38,11 +38,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        vocabs = loadJson(filename: "vocab")!
+        vocabs = loadJson(fileName: "vocab")!
         print(vocabs.count==2)
         displayCurrentWord()
         print(999)
-        print(loadJson(filename: "vocab")?.count==2)
+        print(loadJson(fileName: "vocab")?.count==2)
 
     }
     
