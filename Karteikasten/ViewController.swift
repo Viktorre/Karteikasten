@@ -6,18 +6,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var lbl1: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     
-    var vocabulary: [[String: String]] = [
-        [
-            "german": "dennoch",
-            "french": "néanmoins"
-        ],
-        [
-            "german": "deutsch",
-            "french": "allemand"
-        ]
-    ]
-  
-    
     
     struct ResponseData: Decodable {
         var vocab: [Vocab]
@@ -55,6 +43,8 @@ class ViewController: UIViewController {
         displayCurrentWord()
         print(999)
         print(loadJson(filename: "vocab")?.count==2)
+        var vocab = loadJson(filename: "vocab")!
+        print(vocab.count==2)
     }
     
     func setupUI() {
@@ -64,9 +54,10 @@ class ViewController: UIViewController {
     }
     
     func displayCurrentWord() {
-        if currentIndex < loadJson(filename: "vocab")!.count {
-            let german = loadJson(filename: "vocab")![currentIndex].german ?? "—"
-            let french = loadJson(filename: "vocab")![currentIndex].french ?? "—"
+        var vocab = loadJson(filename: "vocab")!
+        if currentIndex < vocab.count {
+            let german = vocab[currentIndex].german
+            let french = vocab[currentIndex].french
             lbl1.text = "🇩🇪 \(german)\n🇫🇷 \(french)"
             nextButton.isEnabled = true
         } else {
