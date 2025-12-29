@@ -40,6 +40,9 @@ class ViewController: UIViewController {
         setupUI()
         vocabs = loadJson(fileName: "vocab")!
         print(vocabs.count==2)
+        print(vocabs[0].french)
+        vocabs[0].french = "changed value"
+        print(vocabs[0].french)
         displayCurrentWord()
         print(999)
         print(loadJson(fileName: "vocab")?.count==2)
