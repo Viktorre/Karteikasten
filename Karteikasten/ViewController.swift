@@ -2,11 +2,11 @@ import Foundation
 import UIKit
 
 
-struct ResponseData: Decodable {
+struct ResponseData: Codable {
     var vocab: [Vocab]
 }
 
-struct Vocab: Decodable {
+struct Vocab: Codable {
     var german: String
     var french: String
     var difficulty: Int
@@ -33,6 +33,20 @@ class ViewController: UIViewController {
             }
         }
         return nil
+    }
+
+    func saveJson(fileName: String, vocabs: [Vocab]) {
+        let url = URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("\(fileName).json")
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        do {
+            let response = ResponseData(vocab: vocabs)
+            let data = try encoder.encode(response)
+            try data.write(to: url, options: [.atomic])
+            print("Saved \(fileName).json to: \(url.path)")
+        } catch {
+            print("Failed to save \(fileName).json: \(error)")
+        }
     }
     
     override func viewDidLoad() {
@@ -63,6 +77,8 @@ class ViewController: UIViewController {
             nextButton.isEnabled = true
         } else {
             lbl1.text = "🎉 Done!"
+            vocabs[0].french = "test 04"
+            saveJson(fileName: "vocab", vocabs: vocabs)
             nextButton.isEnabled = false
         }
     }
