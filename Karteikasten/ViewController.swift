@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 
+
 struct ResponseData: Codable {
     var vocab: [Vocab]
 }
@@ -18,7 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var lbl1: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     
-    var currentIndex = 0
+    var wordCounter = 0
+    var german = true
     var vocabs: [Vocab]!
 
     func loadJson(fileName: String) -> [Vocab]? {
@@ -70,10 +72,15 @@ class ViewController: UIViewController {
     }
     
     func displayCurrentWord() {
-        if currentIndex < vocabs.count {
-            let german = vocabs[currentIndex].german
-            let french = vocabs[currentIndex].french
-            lbl1.text = "🇩🇪 \(german)\n🇫🇷 \(french)"
+        if wordCounter < vocabs.count {
+            if german == true {
+                let german = vocabs[wordCounter].german
+                lbl1.text = "🇩🇪 \(german)"
+            } else {
+                let french = vocabs[wordCounter].french
+                lbl1.text = "🇫🇷 \(french)"
+            }
+        } else if wordCounter == vocabs.count {
             nextButton.isEnabled = true
         } else {
             lbl1.text = "🎉 Done!"
@@ -84,7 +91,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextTapped(_ sender: Any) {
-        currentIndex += 1
+        german.toggle()
+        if german == true { 
+            wordCounter += 1
+        }
         displayCurrentWord()
     }
 }
